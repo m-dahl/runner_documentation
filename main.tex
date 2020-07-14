@@ -73,8 +73,8 @@
 % between columns has already been defined, so we don't need to
 % specify it.
 \node [proc, right=of p1] (p4) {Lift offending specs};
-\node [proc, join=by free] {Find plan to state where spec holds};
-\node [proc, join=by free] (p5) {Suggest actions to user};
+\node [proc, join] {Find plan to state where spec holds};
+\node [proc, join] (p5) {Suggest actions to user};
 
 % Replan
 \node [proc, right=of p3] (t6) {Replan};
@@ -125,7 +125,7 @@
 % Finally, the twisty connectors. Again, we place the annotation
 % first, then draw the connector
 \path (t1.east) to node [near start, yshift=1em] {$n$} (c1);
-  \draw [o->,lcfree] (t1.east) -- (c1) |- (p4);
+  \draw [o->,lcnorm] (t1.east) -- (c1) |- (p4);
 
   \draw [*->,lcnorm] (t4.west) -- (c4) |- (p3);
 
@@ -133,25 +133,25 @@
 
 
 \path (t7.east) to node [near start, yshift=1em] {$n$} (c7);
-  \draw [o->,lcfree] (t7.east) -- (c7) |- (p9);
+  \draw [o->,lcnorm] (t7.east) -- (c7) |- (p9);
 
 \draw [->,lcnorm] (p8.south) |- (t4);
 
 \path (t2.east) to node [yshift=-1em] {$y$} (c2);
-\draw [*->,lcfree] (t2.east) -- (c2) |- (t6);
+\draw [*->,lcnorm] (t2.east) -- (c2) |- (t6);
 
 \path (t3.east) to node [yshift=-1em] {$n$} (c3);
-\draw [o->,lcfree] (t3.east) -- (c3) |- (t6);
+\draw [o->,lcnorm] (t3.east) -- (c3) |- (t6);
 
 % -------------------------------------------------
 % A last flourish which breaks all the rules
-\draw [->,MediumPurple4, dotted, thick, shorten >=1mm]
+\draw [->,dotted, thick, shorten >=1mm]
   (t4.south) -- ++(0mm,-5mm)  -- ++(-40mm,0)
   |- node [black, near end, yshift=1em, it]
     {External input} (p0);
 % -------------------------------------------------
   \end{tikzpicture}
-  \end{section*}
+
 % =================================================
 \end{document}
 
